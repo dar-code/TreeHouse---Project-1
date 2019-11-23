@@ -61,8 +61,16 @@ function getRandomQuote() {
 function printQuote() {
 
 let theQuote = getRandomQuote();
-
 let print = '';
+
+function colorNumber() {
+  return Math.floor(Math.random() * 256);
+} 
+
+let red = colorNumber();
+let green = colorNumber();
+let blue = colorNumber();
+let backgroundRGB = 'rgb(' + red + ',' + green + ',' + blue + ')';
 
 print = '<p class="quote">' + theQuote.quote + '</p>'
 print += '<p class="source">' + theQuote.source;
@@ -77,14 +85,15 @@ if (theQuote.citation) {
   print += '<span class="year">' + '(' + theQuote.tags + ')' + '</span>' + '</p>';
 }
 
-document.getElementById('quote-box').innerHTML = print;
+document.body.style.backgoundColor = backgroundRGB;
 
-return print;
+document.getElementById('quote-box').innerHTML = print;
 
 }
 
 // Quote will change every 25 seconds if the button is "Show anoter quote" button is not clicked or the page is not refreashed. 25000 is the number of miliseconds that the page will take to refreash. "setInterval" repeats the execution of the "printQuote" function continuously.
 
 setInterval(printQuote, 25000),
+
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
