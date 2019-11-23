@@ -85,7 +85,7 @@ if (theQuote.citation) {
   print += '<span class="year">' + '(' + theQuote.tags + ')' + '</span>' + '</p>';
 }
 
-document.body.style.backgoundColor = backgroundRGB;
+document.body.style.backgroundColor = backgroundRGB;
 
 document.getElementById('quote-box').innerHTML = print;
 
